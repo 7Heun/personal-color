@@ -1,7 +1,12 @@
+body {
+    margin: 0;
+}
+img {
+    size: cover;
+}
 .wrapper {
-            width: 1000px;
-            margin: 50px auto 0;
-            height: 600px;
+            width: 100vw;
+            height: 100vh;
         }
 
         .col {
@@ -27,7 +32,7 @@
 
         .col.three {
             background: url(images/3_background.png);
-            background-size: contain;
+            background-size: cover;
             position: relative;
         }
         .floating {
@@ -60,13 +65,13 @@
         }
         .big1 {
             bottom: 20%;
-            left: 3%;
+            left: 8%;
             width: 3em;
             height: 3em;
         }
         .big2 {
             bottom: 20%;
-            right: 4%;
+            right: 8%;
             width: 3em;
             height: 3em;
         }
