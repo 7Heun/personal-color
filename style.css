@@ -17,7 +17,7 @@ body {
             height: 100%;
             text-align: center;
             font-size: 50px;
-            color: #fff;
+            color: #3d3d3d;
             line-height: 300%;
             font-weight: bold;
         }
@@ -32,7 +32,8 @@ body {
 
         .col.three {
             background: url(images/3_background.png);
-            background-size: cover;
+            background-size: 100%;
+            background-repeat:repeat;
             position: relative;
         }
         .floating {
