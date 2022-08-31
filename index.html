@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 이미지 애니메이션 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"
+        integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<script>
+    var index1 = 0; //이미지에 접근하는 인덱스
+    var index2 = 0;
+    window.onload = function () {
+        slideShow();
+    }
+    // 이미지 슬라이더
+    function slideShow() {
+        var i;
+        var x1 = document.getElementsByClassName("slide1"); // slide1에 대한 dom 참조
+        var x2 = document.getElementsByClassName("slide2"); // slide2에 대한 dom 참조
+        for (i = 0; i < x1.length; i++) {
+            x1[i].style.display = "none"; // display를 none으로 초기화
+        }
+        for (i = 0; i < x2.length; i++) {
+            x2[i].style.display = "none"; // display를 none으로 초기화
+        }
+        index1++;
+        index2++;
+        if (index1 > x1.length) {
+            index1 = 1; // 인덱스가 초과되면 1로 변경
+        }
+        if (index2 > x2.length) {
+            index2 = 1; // 인덱스가 초과되면 1로 변경
+        }
+        x1[index1 - 1].style.display = "block"; // 해당 인덱스는 block으로
+        x2[index2 - 1].style.display = "block"; // 해당 인덱스는 block으로
+        setTimeout(slideShow, 5000); // 함수를 5초마다 호출
+    }
+</script>
+
+<body>
+    <div class="wrapper">
+        <div class="col one">
+            <img class="slide1 fade" src="images/1-1.png" alt="1-1" width="100%" height="100%">
+            <img class="slide1 fade" src="images/1-2.png" alt="1-2" width="100%" height="100%">
+            <img class="slide1 fade" src="images/1-3.png" alt="1-3" width="100%" height="100%">
+            <img class="slide1 fade" src="images/1-4.png" alt="1-3" width="100%" height="100%">
+            <img class="slide1 fade" src="images/1-5.png" alt="1-3" width="100%" height="100%">
+        </div>
+        <div class="col two">
+            <img class="slide2 fade" src="images/2-1.png" alt="1-1" width="100%" height="100%">
+            <img class="slide2 fade" src="images/2-2.png" alt="1-2" width="100%" height="100%">
+            <img class="slide2 fade" src="images/2-3.png" alt="1-3" width="100%" height="100%">
+            <img class="slide2 fade" src="images/2-4.png" alt="1-3" width="100%" height="100%">
+        </div>
+        <div class="col three">
+            <img class="floating big1" src="images/assets/shirt1.png" alt="big1" />
+            <img class="floating big2" src="images/assets/shirt2.png" alt="big2" />
+            <img class="floating small shoes1" src="images/assets/shoes1.png" alt="shoes1" />
+            <img class="floating small shoes2" src="images/assets/shoes2.png" alt="shoes2" />
+            <img class="floating small bag1" src="images/assets/bag1.png" alt="bag1" />
+            <img class="floating small bag2" src="images/assets/bag2.png" alt="bag2" />
+        </div>
+    </div>
+    <script>
+        //범위 랜덤 함수(소수점 2자리까지)
+        function random(min, max) { //min~max 범위
+            //toFixed()를 통해 반환된 문자 데이터를,
+            //parseFloat()을 통해 소수점을 가지는 숫자 데이터로 변환
+            return parseFloat((Math.random() * (max - min) + min).toFixed(2))
+        }
+
+        function floatingImg(item, delayAfter, size) {
+            gsap.to(
+                item, //선택자
+                random(1.5, 2.5), //1.5~2.5초 사이의 랜덤한 애니메이션 동작 시간
+                {
+                    delay: random(0, delayAfter), //몇초 뒤에 애니메이션을 실행, 지연 시간 설정
+                    y: size, //transform: translateY(수치)와 같음. 수직으로 움직이는 크기
+                    repeat: -1, //몇 번 반복하는지를 설정, -1은 무한 반복.
+                    yoyo: true, //한번 재생된 애니메이션을 다시 뒤로 재생-위아래 움직임
+                    ease: Power1.easeInOut //easing 함수 적용
+                }
+            );
+        }
+
+        floatingImg('.bag1', .5, 25)
+        floatingImg('.bag2', 1, 20)
+        floatingImg('.shoes1', 2.5, 15)
+        floatingImg('.shoes2', 2, 18)
+    </script>
+    <script src="change.js"></script>
+</body>
+
+</html>
