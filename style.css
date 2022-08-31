@@ -33,6 +33,7 @@ body {
         .col.three {
             background: url(images/3_background.png);
             background-size: contain;
+            background-position: right bottom;
             position: relative;
         }
         .floating {
