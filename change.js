@@ -23,7 +23,9 @@ function changepic() {
     bigPic2.setAttribute("src", smallPicsAttribute[1]);
     smallPics[0].setAttribute("src", smallPicsAttribute[2]);
     smallPics[1].setAttribute("src", smallPicsAttribute[3]);
-    smallPics[2].setAttribute("src", bigPicAtrribute1);
-    smallPics[3].setAttribute("src", bigPicAtrribute2);
+    smallPics[2].setAttribute("src", smallPicsAttribute[4]);
+    smallPics[3].setAttribute("src", smallPicsAttribute[5]);
+    smallPics[4].setAttribute("src", bigPicAtrribute1);
+    smallPics[5].setAttribute("src", bigPicAtrribute2);
   }, 900);
 }
